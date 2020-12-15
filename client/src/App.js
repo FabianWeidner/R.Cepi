@@ -13,6 +13,8 @@ import Alerts from "./components/layout/Alerts";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
+import RecipeState from "./context/recipe/RecipeState";
+
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
@@ -20,22 +22,24 @@ if (localStorage.token) {
 const App = () => {
   return (
     <AuthState>
-      <AlertState>
-        <Router>
-          <Fragment>
-            <Navbar />
-            <div className="container">
-              <Alerts />
-              <Switch>
-                <PrivateRoute exact path="/" component={Home} />
-                <Route exact path="/about" component={About} />
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/login" component={Login} />
-              </Switch>
-            </div>
-          </Fragment>
-        </Router>
-      </AlertState>
+      <RecipeState>
+        <AlertState>
+          <Router>
+            <Fragment>
+              <Navbar />
+              <div className="container">
+                <Alerts />
+                <Switch>
+                  <PrivateRoute exact path="/" component={Home} />
+                  <Route exact path="/about" component={About} />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
+                </Switch>
+              </div>
+            </Fragment>
+          </Router>
+        </AlertState>
+      </RecipeState>
     </AuthState>
   );
 };

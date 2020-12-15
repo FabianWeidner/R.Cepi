@@ -14,7 +14,8 @@ app.get("/", (req, res) => res.send({ msg: "Welcome to Yummy" }));
 // Define Routes
 app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
-app.use("/api/contacts", require("./routes/contacts"));
+app.use("/api/recipes", require("./routes/recipes"));
+// app.use("/api/contacts", require("./routes/contacts"));
 
 const PORT = process.env.PORT || 5000;
 

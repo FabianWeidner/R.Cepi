@@ -44,12 +44,12 @@ const Navbar = ({ title, icon }) => {
       </h1>
 
       <ul>
-        {/* <li>
+        <li>
           <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/about">About</Link>
-        </li> */}
+        </li>
 
         {isAuthenticated ? authLinks : guestLinks}
       </ul>
